@@ -9,6 +9,7 @@ build
 
 .nyc_output
 coverage
+.coveralls.yml
 
 .vscode
 .idea/
