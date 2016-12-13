@@ -1,8 +1,14 @@
 const vals = {
   func  : () => {},
   string: 'string',
-  list  : [ 'any', {}, null ],
-  nil   : null
+  nil   : null,
+  list  : [
+    'any',
+    {
+      'field': 'inside array'
+    },
+    { },
+    null ],
 }
 
 const source = {
@@ -23,4 +29,13 @@ const expected = {
   '/def'             : vals.nil
 }
 
-module.exports = { source, expected }
+const expectedWithArray = {
+  '/route/inner/func'  : vals.func,
+  '/route/inner/str'   : vals.string,
+  '/route/list/0'      : 'any',
+  '/route/list/1/field': 'inside array',
+  '/route/list/3'      : vals.nil,
+  '/def'               : vals.nil
+}
+
+module.exports = { source, expected, expectedWithArray }

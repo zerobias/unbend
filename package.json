@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tap test/index.js",
     "coverage": "nyc -r=text -r=lcov tap test/index.js",
-    "coverage:html": "nyc --coverage-report=html tap test/index.js",
+    "coverage:html": "tap test/index.js --coverage-report=html",
     "test:watch": "nodemon -q -x tap test/index.js"
   },
   "keywords": [
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@types/ramda": "0.0.2",
+    "nyc": "^10.0.0",
     "tap": "^8.0.1"
   }
 }
