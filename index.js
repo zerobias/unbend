@@ -58,7 +58,6 @@ function flatten(object, parseArray=false) {
     ? reducers.withArray
     : reducers.noArray
   const result = func(object)
-  console.log(result)
   return result
 }
 
