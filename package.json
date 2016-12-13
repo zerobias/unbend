@@ -1,0 +1,26 @@
+{
+  "name": "flat-tree-path",
+  "version": "1.0.0",
+  "description": "Convert tree into flat { path: value } object",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/index.js",
+    "coverage": "nyc -r=text -r=lcov tap test/index.js",
+    "coverage:html": "nyc --coverage-report=html tap test/index.js",
+    "test:watch": "nodemon -q -x tap test/index.js"
+  },
+  "keywords": [
+    "tree",
+    "flatten",
+    "path"
+  ],
+  "author": "Zero Bias",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.22.1"
+  },
+  "devDependencies": {
+    "@types/ramda": "0.0.2",
+    "tap": "^8.0.1"
+  }
+}

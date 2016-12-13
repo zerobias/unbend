@@ -1,0 +1,14 @@
+.DS_STORE
+*.log
+
+node_modules
+typings
+
+dist
+build
+
+.nyc_output
+coverage
+
+.vscode
+.idea/
