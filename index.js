@@ -48,12 +48,12 @@ const reducers = {
 }
 
 /**
- * Flatten
+ * Unbend nested object tree
  *
  * @param {Object} object
  * @param {boolean} [parseArray = false]
  */
-function flatten(object, parseArray=false) {
+function unbend(object, parseArray=false) {
   const func = parseArray
     ? reducers.withArray
     : reducers.noArray
@@ -61,4 +61,4 @@ function flatten(object, parseArray=false) {
   return result
 }
 
-module.exports = flatten
+module.exports = unbend

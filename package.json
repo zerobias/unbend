@@ -1,7 +1,7 @@
 {
-  "name": "flat-tree-path",
+  "name": "unbend",
   "version": "1.0.0",
-  "description": "Convert tree into flat { path: value } object",
+  "description": "Convert object tree into flat { path: value } object",
   "main": "index.js",
   "scripts": {
     "test": "tap test/index.js",
@@ -12,7 +12,10 @@
   "keywords": [
     "tree",
     "flatten",
-    "path"
+    "path",
+    "object",
+    "nested",
+    "unbend"
   ],
   "author": "Zero Bias",
   "license": "MIT",
