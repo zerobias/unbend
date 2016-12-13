@@ -6,7 +6,7 @@
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 
-**Unbend** converts data tree into a flat list with a `{ '/complete/path/to/each': value }`
+**Unbend** converts tree into a flat list with a `{ '/complete/path/to/each': value }`
 E.g. this useful for parametric http routing
 
 ## Install
