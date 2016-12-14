@@ -1,7 +1,7 @@
 {
   "name": "unbend",
-  "version": "1.1.2",
-  "description": "Converts tree into a flat list with a { '/complete/path/to/each': value }",
+  "version": "2.1.1",
+  "description": "Flatten tree into an object with { '/complete/path/to/each': value }",
   "main": "src/index.js",
   "scripts": {
     "test": "tap test/index.js --100",
