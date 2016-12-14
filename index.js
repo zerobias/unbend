@@ -15,7 +15,7 @@ const join = R.join('/')
 
 const listToProp = (way, name, acc) =>
   R.assoc(
-    join([...way, name]),
+    join( R.append(name, way) ),
     R.__,
     acc )
 
@@ -29,7 +29,7 @@ function testabletransform(tester) {
       (acc, [ name, node ]) =>
         R.ifElse(
           tester,
-          reduceObject( [ ...way, name ], acc ),
+          reduceObject( R.append(name, way), acc ),
           listToProp(way, name, acc)
         )( node )
 
