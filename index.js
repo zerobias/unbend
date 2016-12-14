@@ -26,12 +26,18 @@ const listToProp = (way, name, acc) =>
 function testabletransform(tester) {
   const reducer =
     way =>
-      (acc, [ name, node ]) =>
-        R.ifElse(
+      (acc, val) => {
+        const name = val[0]
+        const node = val[1]
+
+        const result = R.ifElse(
           tester,
           reduceObject( R.append(name, way), acc ),
           listToProp(way, name, acc)
         )( node )
+
+        return result
+      }
 
   const reduceObject =
     (way = [''], acc = {}) => P(
