@@ -38,4 +38,23 @@ const expectedWithArray = {
   '/def'               : vals.nil
 }
 
-module.exports = { source, expected, expectedWithArray }
+const expectedSeparator = {
+  '.route.inner.func': vals.func,
+  '.route.inner.str' : vals.string,
+  '.route.list'      : vals.list,
+  '.def'             : vals.nil
+}
+
+const expectedNoBegin = {
+  'route.inner.func': vals.func,
+  'route.inner.str' : vals.string,
+  'route.list'      : vals.list,
+  'def'             : vals.nil
+}
+
+module.exports = {
+  source,
+  expected,
+  expectedWithArray,
+  expectedSeparator,
+  expectedNoBegin }

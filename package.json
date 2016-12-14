@@ -1,8 +1,8 @@
 {
   "name": "unbend",
-  "version": "1.1.2",
-  "description": "Converts tree into a flat list with a { '/complete/path/to/each': value }",
-  "main": "index.js",
+  "version": "2.1.1",
+  "description": "Flatten tree into an object with { '/complete/path/to/each': value }",
+  "main": "src/index.js",
   "scripts": {
     "test": "tap test/index.js --100",
     "coveralls": "nyc report --reporter=text-lcov tap ./test/index.js | coveralls",
@@ -11,7 +11,8 @@
     "test:watch": "nodemon -q -x tap ./test/index.js"
   },
   "files": [
-    "index.js"
+    "src/index.js",
+    "src/helpers.js"
   ],
   "keywords": [
     "tree",
