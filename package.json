@@ -1,6 +1,6 @@
 {
   "name": "unbend",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Flatten tree into an object with { '/complete/path/to/each': value }",
   "main": "src/index.js",
   "scripts": {
@@ -12,7 +12,10 @@
   },
   "files": [
     "src/index.js",
-    "src/helpers.js"
+    "src/helpers.js",
+    "src/injector.js",
+    "src/join.js",
+    "src/transform.js"
   ],
   "keywords": [
     "tree",
