@@ -15,7 +15,7 @@ E.g. this useful for parametric http routing
 
 ## Usage
 
-    unbend( Object, [ parseArray = false ] )
+    unbend( Object, [ config ] )
 
 ```js
 const unbend = require('unbend')
@@ -47,7 +47,48 @@ const expected = {
 
 See [test data file](https://github.com/zerobias/unbend/blob/master/test/test-data.js) for complete examples
 
-### Optionally, you can also convert nested arrays
+## Configuration
+
+Unbend supports optional config object at second argument.
+
+### Default config
+```js
+const config = {
+  separator         : '/',
+  skipFirstSeparator: false,
+  parseArray        : false
+}
+```
+
+### Custom separators
+
+> unbend(tree, { separator: '.' })
+
+```js
+const source = {
+  route: {
+    inner: {
+      func: () => {},
+      str : 'string'
+    }
+  },
+  def: null
+}
+
+unbend( source, { separator: '.' } )
+
+//And that will turn into
+
+const expected = {
+  '.route.inner.func': () => {},
+  '.route.inner.str' : 'string',
+  '.def'             : null
+}
+```
+
+### Convert nested arrays
+
+> unbend(tree, { parseArray: true })
 
 ```js
 const unbend = require('unbend')
@@ -61,7 +102,7 @@ const source = {
     ]
 }
 
-unbend( source, true )
+unbend( source, { parseArray: true } )
 
 //And that will turn into
 
@@ -69,6 +110,32 @@ const expected = {
   '/list/0'      : 'any',
   '/list/2'      : null,
   '/list/3/field': 'inside array'
+}
+```
+
+### Skip first separator
+
+> unbend(tree, { skipFirstSeparator: true })
+
+```js
+const source = {
+  route: {
+    inner: {
+      func: () => {},
+      str : 'string'
+    }
+  },
+  def: null
+}
+
+unbend( source, { skipFirstSeparator: true } )
+
+//And that will turn into
+
+const expected = {
+  'route/inner/func': () => {},
+  'route/inner/str' : 'string',
+  'def'             : null
 }
 ```
 

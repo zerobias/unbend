@@ -30,11 +30,11 @@ const pipeHooks = {
   withDrop: (func, separ) => curryJoinTo( addDrop( func, separ ) )
 }
 
-const join = (separator, beginWithSeparator) => {
+const join = (separator, skipFirstSeparator) => {
   const basicJoin = R.join(separator)
-  const wrappedJoin = beginWithSeparator
-    ? pipeHooks.noDrop(basicJoin)
-    : pipeHooks.withDrop(basicJoin, separator)
+  const wrappedJoin = skipFirstSeparator
+    ? pipeHooks.withDrop(basicJoin, separator)
+    : pipeHooks.noDrop(basicJoin)
   return wrappedJoin
 }
 

@@ -32,7 +32,7 @@ tap('Custom separator', t => {
 tap('No separator at begin', t => {
   const config = {
     separator         : '.',
-    beginWithSeparator: false
+    skipFirstSeparator: true
   }
   const result = flatten(source, config)
   t.same(result, data.expectedNoBegin, 'No separator at begin match fail')

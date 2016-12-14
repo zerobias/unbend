@@ -13,7 +13,7 @@ const selectTester =
 const defaultConfig = {
   parseArray        : false,
   separator         : '/',
-  beginWithSeparator: true
+  skipFirstSeparator: false
 }
 
 const reconfig = R.ifElse(
@@ -26,7 +26,7 @@ const configure = basicConfig => {
   const tester = selectTester(config.parseArray)
   const join = Join(
     config.separator,
-    config.beginWithSeparator)
+    config.skipFirstSeparator)
   return transform(tester, join)
 }
 
