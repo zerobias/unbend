@@ -40,12 +40,12 @@ function testabletransform(tester) {
       }
 
   const reduceObject =
-    (way = [''], acc = {}) => P(
+    (way, acc ) => P(
         R.toPairs,
         R.reduce(
           reducer(way),
           acc) )
-  return reduceObject()
+  return reduceObject([''], {})
 }
 
 const reducers = {
@@ -59,8 +59,9 @@ const reducers = {
  * @param {Object} object
  * @param {boolean} [parseArray = false]
  */
-function unbend(object, parseArray=false) {
-  const func = parseArray
+function unbend(object, parseArray) {
+  const isParse = R.defaultTo(false, parseArray)
+  const func = isParse
     ? reducers.withArray
     : reducers.noArray
   const result = func(object)
