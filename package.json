@@ -4,11 +4,11 @@
   "description": "Converts tree into a flat list with a { '/complete/path/to/each': value }",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/index.js",
-    "coveralls": "nyc report --reporter=text-lcov tap test/index.js | coveralls",
-    "coverage": "nyc -r=text -r=lcov tap test/index.js",
-    "coverage:html": "tap test/index.js --coverage-report=html",
-    "test:watch": "nodemon -q -x tap test/index.js"
+    "test": "tap test/index.js --100",
+    "coveralls": "nyc report --reporter=text-lcov tap ./test/index.js | coveralls",
+    "coverage": "nyc -r=text -r=lcov tap ./test/index.js",
+    "coverage:html": "tap ./test/index.js --coverage-report=html",
+    "test:watch": "nodemon -q -x tap ./test/index.js"
   },
   "files": [
     "index.js"

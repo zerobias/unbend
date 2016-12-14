@@ -15,7 +15,7 @@ const join = R.join('/')
 
 const listToProp = (way, name, acc) =>
   R.assoc(
-    join([...way, name]),
+    join( R.append(name, way) ),
     R.__,
     acc )
 
@@ -26,20 +26,26 @@ const listToProp = (way, name, acc) =>
 function testabletransform(tester) {
   const reducer =
     way =>
-      (acc, [ name, node ]) =>
-        R.ifElse(
+      (acc, val) => {
+        const name = val[0]
+        const node = val[1]
+
+        const result = R.ifElse(
           tester,
-          reduceObject( [ ...way, name ], acc ),
+          reduceObject( R.append(name, way), acc ),
           listToProp(way, name, acc)
         )( node )
 
+        return result
+      }
+
   const reduceObject =
-    (way = [''], acc = {}) => P(
+    (way, acc ) => P(
         R.toPairs,
         R.reduce(
           reducer(way),
           acc) )
-  return reduceObject()
+  return reduceObject([''], {})
 }
 
 const reducers = {
@@ -53,8 +59,9 @@ const reducers = {
  * @param {Object} object
  * @param {boolean} [parseArray = false]
  */
-function unbend(object, parseArray=false) {
-  const func = parseArray
+function unbend(object, parseArray) {
+  const isParse = R.defaultTo(false, parseArray)
+  const func = isParse
     ? reducers.withArray
     : reducers.noArray
   const result = func(object)
